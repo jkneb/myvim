@@ -1,7 +1,7 @@
 syntax on
 colorscheme Molokai
+filetype indent plugin on
 set number
-"set tabstop=4
 set softtabstop=4
 set expandtab
 set shiftwidth=4
@@ -13,9 +13,17 @@ set splitbelow
 set hlsearch
 set mouse=a
 set ruler
+"set cursorline
+set nocompatible
+set nostartofline
+set confirm
 
 "Autocompletion
-set wildmode=list:longest
+"set wildmode=list:longest
+set wildmenu
+set omnifunc=csscomplete#CompleteCSS
+au BufRead,BufNewFile *.scss set filetype=scss
+"autocmd BufNewFile,BufRead *.scss             set ft=scss.css
 
 "Load the current buffer in Firefox
 abbrev ff :! open -a Firefox.app %:p<cr>
@@ -24,16 +32,19 @@ abbrev sf :! open -a Safari.app %:p<cr>
 abbrev op :! open -a Opera.app %:p<cr>
 
 "Shortcups
-"nmap ,d :cd~/Desktop<cr>:e.<cr>
 nmap <space> :
 nmap <F6> :NERDTreeToggle<cr>
+
+"TextMate shortcut to move tab next and tab previous
+nnoremap <C-A-Left> :tabprevious<CR>
+nnoremap <C-A-Right> :tabnext<CR>
 
 "Automtically change current directory to the one in the buffer one
 "autocmd BufEnter * cd %:p:h
 
 "Source .vimrc just after saving it
 if has("autocmd")
-	autocmd bufwritepost .vimrc source ~/.vimrc
+    autocmd bufwritepost .vimrc source ~/.vimrc
 endif
 
 "Custom mapleader instead of the default \
