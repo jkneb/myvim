@@ -1,39 +1,50 @@
 syntax on
-colorscheme Molokai
-filetype indent plugin on
-set number
-set softtabstop=4
-set expandtab
-set shiftwidth=4
+filetype indent plugin on   " auto detect filetype
+
+" colorscheme Molokai
+colorscheme Solarized
+set background=dark
+
+set number                  " show line numbers
+set softtabstop=4           " let backspace delete indent
+set expandtab               " tabs are spaces, not tabs
+set shiftwidth=4            " use indents of 4 spaces
 set guifont=Monaco:h12
 set smartindent
 set autoindent
 set foldenable
-set splitbelow
-set hlsearch
-set mouse=a
-set ruler
-"set cursorline
-set nocompatible
+set splitbelow              " split next to current view
+set hlsearch                " highlight search terms
+set mouse=a                 " enable mouse support 
+set ruler                   " show current cursor position
+set nocompatible            " better to have it
 set nostartofline
+set autoread                " auto read when file changed from outside
 set confirm
+set incsearch               " highlight search as you type
+set cursorline              " highlight current line
+"set nowrap                 " no return on long lines
+set virtualedit=onemore     " allow for cursor beyond last character
+set history=1000            " default history is 20
+set showcmd                 " show partial commands in status line
+set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
+set backspace=indent,eol,start  " make that backspace key work the way it should
 
 "Autocompletion
-"set wildmode=list:longest
-set wildmenu
+set wildmode=list:longest
 set omnifunc=csscomplete#CompleteCSS
-au BufRead,BufNewFile *.scss set filetype=scss
-"autocmd BufNewFile,BufRead *.scss             set ft=scss.css
 
-"Load the current buffer in Firefox
-abbrev ff :! open -a Firefox.app %:p<cr>
-abbrev ch :! open -a Google\ Chrome.app %:p<cr> 
-abbrev sf :! open -a Safari.app %:p<cr>
-abbrev op :! open -a Opera.app %:p<cr>
+"CoffeeScript config
+hi link coffeeSpaceError NONE
+hi link coffeeSemicolonError NONE
+hi link coffeeReservedError NONE
 
 "Shortcups
 nmap <space> :
 nmap <F6> :NERDTreeToggle<cr>
+
+"Change working directory to the one of the current file
+cmap cwd lcd %:p:h
 
 "TextMate shortcut to move tab next and tab previous
 nnoremap <C-A-Left> :tabprevious<CR>
@@ -52,7 +63,8 @@ let mapleader=","
 
 "NERDTree
 let NERDTreeShowHidden=1 
-let NERDTreeShowBookmarks=1 
+let NERDTreeShowBookmarks=0
+let NERDTreeIgnore=['\.DS_Store$']
 "au VimEnter * NERDTreeFind "open nerdtree in the same directory as the current buffer
 
 "if exists("loaded_nerd_tree")
