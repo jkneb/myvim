@@ -13,6 +13,7 @@ set guifont=Monaco:h12
 set smartindent
 set autoindent
 set foldenable
+set scrolloff=2             " keep at least 2 lines above/bellow cursor
 set splitbelow              " split next to current view
 set hlsearch                " highlight search terms
 set mouse=a                 " enable mouse support 
