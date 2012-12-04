@@ -7,7 +7,7 @@ $ mv ~/myvim ~/.vim
 $ mv ~/.vim/_.vimrc ~/.vimrc
 ```
 
-## UPDATE
+## Update
 
 ```
 $ cd ~/.vim/
