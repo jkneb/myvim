@@ -65,7 +65,7 @@ let mapleader=","
 "NERDTree
 let NERDTreeShowHidden=1 
 let NERDTreeShowBookmarks=0
-let NERDTreeIgnore=['\.DS_Store$']
+let NERDTreeIgnore=['\.DS_Store$','\.swp$']
 "au VimEnter * NERDTreeFind "open nerdtree in the same directory as the current buffer
 
 "if exists("loaded_nerd_tree")
